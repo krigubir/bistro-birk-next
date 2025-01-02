@@ -11,13 +11,14 @@ export default {
       colors: {
         background: '#f5f5f5',
         primary: '#503650',
+        darkPrimary: '#221b27',
       },
       boxShadow: {
         card: '0 0 0.375rem 0 rgba(0, 0, 0, 0.2)',
       },
       fontFamily: {
+        serif: ['Merriweather', 'serif'],
         geist: ['Geist', 'sans-serif'],
-        oldStandardTT: ['Old Standard TT', 'serif'],
       },
     },
   },

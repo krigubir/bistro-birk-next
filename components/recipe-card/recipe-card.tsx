@@ -27,7 +27,7 @@ export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
         width={300}
         height={200}
       />
-      <div className="absolute bottom-0 flex h-1/2 w-full flex-col justify-end bg-gradient-to-b from-transparent to-[#221b27] px-6 pb-4 text-center leading-tight text-white/80">
+      <div className="to-darkPrimary absolute bottom-0 flex h-1/2 w-full flex-col justify-end bg-gradient-to-b from-transparent px-6 pb-4 text-center leading-tight text-white/80">
         <p>{recipe.description}</p>
       </div>
     </div>

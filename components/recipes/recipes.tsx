@@ -64,7 +64,7 @@ export const Recipes = () => {
     },
   ]
   return (
-    <div className="mx-auto mb-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
+    <div className="mx-auto my-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
       {recipes.map((recipe, index) => (
         <RecipeCard key={index} recipe={recipe} />
       ))}
