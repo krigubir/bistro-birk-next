@@ -8,7 +8,7 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image.png',
         alt: 'Placeholder image',
       },
     },
@@ -18,7 +18,7 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image1.png',
         alt: 'Placeholder image',
       },
     },
@@ -28,7 +28,7 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image2.png',
         alt: 'Placeholder image',
       },
     },
@@ -38,7 +38,7 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image3.png',
         alt: 'Placeholder image',
       },
     },
@@ -48,7 +48,7 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image4.png',
         alt: 'Placeholder image',
       },
     },
@@ -58,13 +58,13 @@ export const Recipes = () => {
       ingredients: ['Chicken', 'Tomato Sauce', 'Rice'],
       instructions: ['Cook', 'Serve'],
       imageData: {
-        src: 'https://via.placeholder.com/300',
+        src: '/image5.png',
         alt: 'Placeholder image',
       },
     },
   ]
   return (
-    <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+    <div className="mx-auto mb-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
       {recipes.map((recipe, index) => (
         <RecipeCard key={index} recipe={recipe} />
       ))}
