@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 export const NavHeader = () => {
   return (
-    <nav className="text-primary flex w-screen items-center gap-8 bg-background p-6">
+    <nav className="flex w-screen items-center gap-8 bg-background p-6 text-primary">
       <h1 className="font-serif text-2xl">SERVERT</h1>
       <div className="flex space-x-4">
-        <Link href={'/'} className="text-lg">
+        <Link href={'/recipes'} className="text-lg">
           Oppskrifter
         </Link>
         <Link href={'/shopping-list'} className="text-lg">
