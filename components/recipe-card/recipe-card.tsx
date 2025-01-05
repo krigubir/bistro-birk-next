@@ -1,22 +1,17 @@
 'use client'
 
-import { Recipe } from '@/types'
 import Image from 'next/image'
 import { HeartIcon } from '@navikt/aksel-icons'
 import Link from 'next/link'
+import { Recipe } from '../../../studio-servert/sanity.types'
 
-export const RecipeCard = ({ recipe }: { recipe: any }) => {
-  const handleClick = () => {
-    console.log('Recipe clicked')
-  }
-
+export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
     <>
       {recipe && (
         <Link
-          href={`/recipes/${recipe.slug.current}`}
+          href={`/recipes/${recipe.slug?.current}`}
           className="relative flex w-fit cursor-pointer flex-col overflow-hidden rounded-md shadow-card"
-          onClick={handleClick}
         >
           <HeartIcon
             title="a11y-title"
@@ -26,8 +21,8 @@ export const RecipeCard = ({ recipe }: { recipe: any }) => {
           />
           <Image
             className="object-cover"
-            src={recipe.image.asset.url}
-            alt={recipe.image.alt}
+            src={recipe.image?.asset?.url || ''}
+            alt={recipe.image.alt || ''}
             width={300}
             height={200}
             priority

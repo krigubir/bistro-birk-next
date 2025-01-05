@@ -3,7 +3,6 @@ import { fetchRecipes } from '@/sanity/queries'
 
 export const Recipes = async () => {
   const recipes = await fetchRecipes()
-  console.log(recipes)
 
   return (
     <div className="mx-auto my-10 grid grid-cols-2 gap-6 lg:grid-cols-3">

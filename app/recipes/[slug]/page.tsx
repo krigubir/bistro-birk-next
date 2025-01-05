@@ -1,6 +1,4 @@
-import { client } from '@/sanity/client'
 import { fetchRecipe } from '@/sanity/queries'
-import { SanityDocument } from 'next-sanity'
 import Link from 'next/link'
 
 const RecipePage = async ({ params }: { params: { slug: string } }) => {

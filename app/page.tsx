@@ -1,13 +1,7 @@
-import { FilterRecipes } from '@/components/filter-recipes/filter-recipes'
-import { Recipes } from '@/components/recipes/recipes'
+import RecipesPage from './recipes/page'
 
-const HomePage = () => {
-  return (
-    <div className="flex w-screen flex-col justify-center">
-      <FilterRecipes />
-      <Recipes />
-    </div>
-  )
+const HomePage = async () => {
+  return <RecipesPage />
 }
 
 export default HomePage
