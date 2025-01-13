@@ -1,20 +1,12 @@
-'use client'
-
+import { RecipeModel } from '@/app/lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
-// import { Recipe } from '../../../studio-birk/sanity.types'
 
-export type Recipe = {
-  _id: string
-  title: string
-  description: string
-  slug: { current: string }
-  publishedAt: string
-  imageUrl: string
-  imageAlt: string
+type RecipeCardProps = {
+  recipe: RecipeModel
 }
 
-export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
+export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
     <article className="mx-auto flex max-w-screen-md justify-center">
       <Link href={`/recipes/${recipe.slug?.current}`} className="w-full">

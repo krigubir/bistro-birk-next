@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const NavHeader = () => {
   return (
     <div className="sticky top-0 z-50 flex w-full justify-center bg-primary">
-      <nav className="font-forum text-background flex w-full max-w-md items-center justify-between space-x-5 px-3 text-sm sm:text-base">
+      <nav className="flex w-full max-w-md items-center justify-between space-x-5 px-3 font-forum text-sm text-background sm:text-base">
         <Link className="hover:underline" href={'/recipes'}>
           OPPSKRIFTER
         </Link>

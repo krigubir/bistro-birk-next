@@ -1,9 +1,6 @@
-import { RecipeCard } from '@/components/recipe-card/recipe-card'
-import { fetchRecipes } from '@/sanity/queries'
-import { Recipe } from '@/components/recipe-card/recipe-card'
-import { mock } from 'node:test'
+import { NavLinkModel, RecipeModel } from '@/app/lib/types/index'
 
-const mockRecipes = [
+const mockRecipes: RecipeModel[] = [
   {
     _id: '1',
     title: 'Tomato & Mustard Tarte',
@@ -46,14 +43,83 @@ const mockRecipes = [
   },
 ]
 
-export const Recipes = async () => {
-  // const recipes = await fetchRecipes()
+const mockLinks: NavLinkModel[] = [
+  {
+    title: 'Alle',
+    slug: 'alle',
+  },
+  {
+    title: 'Fugl',
+    slug: 'fugl',
+    icon: {
+      base: 'fugl.png',
+      selected: 'fugl-selected.png',
+    },
+  },
+  {
+    title: 'Storfe',
+    slug: 'storfe',
+    icon: {
+      base: 'storfe.png',
+      selected: 'storfe-selected.png',
+    },
+  },
+  {
+    title: 'Svin',
+    slug: 'svin',
+    icon: {
+      base: 'svin.png',
+      selected: 'svin-selected.png',
+    },
+  },
+  {
+    title: 'Lam',
+    slug: 'lam',
+    icon: {
+      base: 'lam.png',
+      selected: 'lam-selected.png',
+    },
+  },
+  {
+    title: 'Fisk',
+    slug: 'fisk',
+    icon: {
+      base: 'fisk.png',
+      selected: 'fisk-selected.png',
+    },
+  },
+  {
+    title: 'Vegetar',
+    slug: 'vegetar',
+    icon: {
+      base: 'vegetar.png',
+      selected: 'vegetar-selected.png',
+    },
+  },
+  {
+    title: 'Pizza',
+    slug: 'pizza',
+    icon: {
+      base: 'pizza.png',
+      selected: 'pizza-selected.png',
+    },
+  },
+  {
+    title: 'Dessert',
+    slug: 'dessert',
+    icon: {
+      base: 'dessert.png',
+      selected: 'dessert-selected.png',
+    },
+  },
+  {
+    title: 'Drikke',
+    slug: 'drikke',
+    icon: {
+      base: 'drikke.png',
+      selected: 'drikke-selected.png',
+    },
+  },
+]
 
-  return (
-    <div className="flex w-full flex-col justify-center gap-4">
-      {mockRecipes.map((recipe) => (
-        <RecipeCard key={recipe._id} recipe={recipe} />
-      ))}
-    </div>
-  )
-}
+export { mockLinks, mockRecipes }

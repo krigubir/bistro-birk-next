@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { NavHeader } from '@/components/nav-header/nav-header'
 import { Ballet, Forum, PT_Serif, Afacad } from 'next/font/google'
 import './globals.css'
+import { NavHeader } from './components/nav-header/nav-header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${forum.className} ${ballet.className} ${ptSerif.className} ${afacad.className}`}
     >
-      <body className="bg-background h-[100%] text-base antialiased">
+      <body className="h-[100%] bg-background text-base antialiased">
         <NavHeader />
         {children}
       </body>

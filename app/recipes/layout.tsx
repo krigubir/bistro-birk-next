@@ -1,4 +1,4 @@
-import { CategoryFilter } from '@/components/category-filter/category-filter'
+import { CategoryNav } from '@/app/components/category-nav/category-nav'
 
 export default function RecipesLayout({
   children,
@@ -6,10 +6,8 @@ export default function RecipesLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="">
-      <CategoryFilter
-        categories={['Fugl', 'Storfe', 'Svin', 'Lam', 'Fisk', 'Vegetar']}
-      />
+    <div className="flex w-full flex-col">
+      <CategoryNav />
       {children}
     </div>
   )
