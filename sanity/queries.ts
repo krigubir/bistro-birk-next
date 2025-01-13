@@ -1,6 +1,6 @@
 import { groq, SanityDocument } from 'next-sanity'
 import { client } from './client'
-import { Recipe, RecipeFilter } from '../../studio-servert/sanity.types'
+import { Recipe, RecipeFilter } from '../../studio-birk/sanity.types'
 
 // CONSTANTS
 const options = { next: { revalidate: 30 } }

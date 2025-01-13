@@ -1,37 +1,40 @@
 'use client'
 
 import Image from 'next/image'
-import { HeartIcon } from '@navikt/aksel-icons'
 import Link from 'next/link'
-import { Recipe } from '../../../studio-servert/sanity.types'
+// import { Recipe } from '../../../studio-birk/sanity.types'
+
+export type Recipe = {
+  _id: string
+  title: string
+  description: string
+  slug: { current: string }
+  publishedAt: string
+  imageUrl: string
+  imageAlt: string
+}
 
 export const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   return (
-    <>
-      {recipe && (
-        <Link
-          href={`/recipes/${recipe.slug?.current}`}
-          className="relative flex w-fit cursor-pointer flex-col overflow-hidden rounded-md shadow-card"
-        >
-          <HeartIcon
-            title="a11y-title"
-            fontSize="1.5rem"
-            className="absolute right-2 top-2"
-            color="white"
-          />
-          <Image
-            className="object-cover"
-            src={recipe.image?.asset?.url || ''}
-            alt={recipe.image.alt || ''}
-            width={300}
-            height={200}
-            priority
-          />
-          <div className="absolute bottom-0 flex h-1/2 w-full flex-col justify-end bg-gradient-to-b from-transparent to-darkPrimary px-6 pb-4 text-center leading-tight text-white/80">
-            <p>{recipe.title}</p>
+    <article className="mx-auto flex max-w-screen-md justify-center">
+      <Link href={`/recipes/${recipe.slug?.current}`} className="w-full">
+        <div className="flex justify-between gap-10">
+          <div className="flex max-w-[60%] flex-col gap-1">
+            <h2 className="font-ptSerif text-2xl">{recipe.title}</h2>
+            <p className="font-afacad">{recipe.description}</p>
           </div>
-        </Link>
-      )}
-    </>
+          <div className="mt-2">
+            <Image
+              className="object-cover"
+              src={recipe.imageUrl}
+              alt={recipe.imageAlt}
+              width={150}
+              height={150}
+              priority
+            />
+          </div>
+        </div>
+      </Link>
+    </article>
   )
 }

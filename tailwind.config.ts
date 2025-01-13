@@ -11,13 +11,16 @@ export default {
       colors: {
         primary: '#421201',
         secondary: '#ebe1d0',
+        background: '#f5f5f5',
       },
       boxShadow: {
         card: '0 0 0.375rem 0 rgba(0, 0, 0, 0.2)',
       },
       fontFamily: {
         ballet: ['Ballet', 'serif'],
-        geist: ['forum', 'serif'],
+        forum: ['forum', 'serif'],
+        ptSerif: ['PT Serif', 'serif'],
+        afacad: ['Afacad', 'serif'],
       },
     },
   },

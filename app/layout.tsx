@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { NavHeader } from '@/components/nav-header/nav-header'
-import { Ballet, Noto_Serif_Display } from 'next/font/google'
+import { Ballet, Forum, PT_Serif, Afacad } from 'next/font/google'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -9,7 +9,18 @@ export const metadata: Metadata = {
 }
 
 const ballet = Ballet({ subsets: ['latin'] })
-const forum = Noto_Serif_Display({ subsets: ['latin'] })
+const forum = Forum({
+  subsets: ['latin'],
+  weight: '400',
+})
+const ptSerif = PT_Serif({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
+const afacad = Afacad({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
 
 export default function RootLayout({
   children,
@@ -17,8 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${forum.className} ${ballet.className}`}>
-      <body className="w-vw h-[100%] bg-background antialiased">
+    <html
+      lang="en"
+      className={`${forum.className} ${ballet.className} ${ptSerif.className} ${afacad.className}`}
+    >
+      <body className="bg-background h-[100%] text-base antialiased">
         <NavHeader />
         {children}
       </body>

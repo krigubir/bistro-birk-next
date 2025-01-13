@@ -3,16 +3,13 @@ import Link from 'next/link'
 
 const RecipePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params
-  const recipe = await fetchRecipe({ slug })
+  // const recipe = await fetchRecipe({ slug })
 
   return (
-    <>
-      {recipe && (
-        <Link href="/recipes" className="hover:underline">
-          ← tilbake til oppskrifter
-        </Link>
-      )}
-    </>
+    <div>
+      <h1>Recipe Page</h1>
+      <Link href="/recipes">Back to recipes</Link>
+    </div>
   )
 }
 

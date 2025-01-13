@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'via.placeholder.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'via.assets.so',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.flaticon.com',
+      },
     ],
   },
 }
