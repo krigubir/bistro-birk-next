@@ -46,7 +46,11 @@ const mockRecipes: RecipeModel[] = [
 const mockLinks: NavLinkModel[] = [
   {
     title: 'Alle',
-    slug: 'alle',
+    slug: '',
+    icon: {
+      base: 'alle.png',
+      selected: 'alle-selected.png',
+    },
   },
   {
     title: 'Fugl',
@@ -97,6 +101,14 @@ const mockLinks: NavLinkModel[] = [
     },
   },
   {
+    title: 'Pasta',
+    slug: 'pasta',
+    icon: {
+      base: 'pasta.png',
+      selected: 'pasta-selected.png',
+    },
+  },
+  {
     title: 'Pizza',
     slug: 'pizza',
     icon: {
@@ -118,6 +130,14 @@ const mockLinks: NavLinkModel[] = [
     icon: {
       base: 'drikke.png',
       selected: 'drikke-selected.png',
+    },
+  },
+  {
+    title: 'Land',
+    slug: 'land',
+    icon: {
+      base: 'land.png',
+      selected: 'land-selected.png',
     },
   },
 ]

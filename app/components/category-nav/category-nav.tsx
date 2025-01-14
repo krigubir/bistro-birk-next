@@ -1,56 +1,97 @@
 'use client'
 
-import { useState } from 'react'
-import { ChevronDownIcon, XMarkIcon } from '@navikt/aksel-icons'
+import { useEffect, useState } from 'react'
+import { ChevronDownIcon, ChevronUpIcon, XMarkIcon } from '@navikt/aksel-icons'
 import { NavLink } from '@/app/components/shared/nav-link'
 import { mockLinks } from '@/app/lib/mock-data'
+import { link } from 'fs'
+import Link from 'next/link'
 
 export const CategoryNav = () => {
   const links = mockLinks
   const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isToggleButtonVisible, setIsToggleButtonVisible] = useState(true) // Controls visibility on scroll
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  // Check screen width on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640) // Tailwind `sm` breakpoint is 640px
+    }
+
+    handleResize() // Initial check
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  // Handle scroll direction to toggle visibility and close filter on mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isMobile) return // Dont hide nav on desktop
+      if (isNavOpen) return // Don't hide nav when filter is open
+
+      const currentScrollY = window.scrollY
+
+      if (currentScrollY > lastScrollY) {
+        setIsToggleButtonVisible(false)
+      } else if (currentScrollY < lastScrollY) {
+        setIsToggleButtonVisible(true)
+      }
+
+      setLastScrollY(scrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isMobile, isNavOpen, lastScrollY])
 
   const handleClick = () => {
     setIsNavOpen(!isNavOpen)
   }
 
   return (
-    <nav className="sticky top-[120px] z-40 flex flex-col justify-center gap-2 bg-secondary">
-      {/* Button to Toggle Dropdown */}
-      <button
-        type="button"
-        className="flex w-full items-center justify-between border-b-2 border-primary p-2"
-        onClick={handleClick}
+    <>
+      {/* Sticky Nav Toggle Button */}
+      <div
+        className={`sticky left-0 top-[70px] flex w-full transform ${
+          isToggleButtonVisible
+            ? 'translate-y-0 transition-transform duration-[600ms]'
+            : '-translate-y-full transition-transform duration-[400ms]'
+        }`}
       >
-        Kategori <ChevronDownIcon title="Open filter nav" fontSize="1.5rem" />
-      </button>
-
-      {/* Dropdown */}
-      {isNavOpen && links && (
-        <div
-          className="fixed left-0 right-0 top-[170px] z-40 max-h-[calc(100vh-120px)] overflow-y-auto bg-secondary shadow-lg"
-          style={{ height: 'auto' }} // Optional to ensure dropdown doesn't exceed view height
+        <button
+          type="button"
+          className={`z-40 flex flex-grow items-center justify-between bg-secondary p-2 ${isNavOpen ? 'border-b-2 border-primary/10 duration-[400ms]' : 'border-b-2 border-primary duration-[600ms]'}`}
+          onClick={handleClick}
         >
-          {/* Links */}
-          {links.map((link) => (
-            <div
-              key={link.title}
-              className="mx-auto flex w-10/12 justify-center border-b-2 border-primary/10 p-2"
-              onClick={handleClick}
-            >
-              <NavLink link={link} />
-            </div>
-          ))}
-
-          {/* Close Button */}
-          <button
-            type="button"
-            className="flex w-full justify-center p-2 pt-4 text-black/85"
-            onClick={handleClick}
-          >
-            <XMarkIcon title="Close filter nav" fontSize="1.5rem"></XMarkIcon>
-          </button>
-        </div>
-      )}
-    </nav>
+          Kategori{' '}
+          <ChevronDownIcon
+            title="Open category nav"
+            fontSize="1.5rem"
+            className={`transition-transform ${isNavOpen ? 'rotate-180 duration-[600ms]' : 'rotate-0 duration-[400ms]'}`}
+          />
+        </button>
+        <nav
+          className={`fixed top-[52px] flex w-full flex-col bg-secondary shadow-lg ${
+            isNavOpen
+              ? 'tranform transition-transform duration-[600ms]'
+              : '-translate-y-[150%] border-none duration-[400ms]'
+          }`}
+          onClick={handleClick}
+        >
+          <div className="grid w-full grid-cols-2 gap-3 gap-x-12 px-8 py-4">
+            {links.map((link) => (
+              <NavLink link={link} key={link.title} />
+            ))}
+          </div>
+        </nav>
+      </div>
+    </>
   )
 }

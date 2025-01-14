@@ -17,22 +17,21 @@ export const NavLink = ({ link, className, ...rest }: NavLinkProps) => {
     <Link
       href={`/recipes/${link.slug.toLowerCase()}`}
       key={link.title}
-      className="text-black hover:underline"
+      className="flex w-full py-2 text-black hover:underline"
     >
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         {link.icon && (
-          <div className="flex items-center">
+          <div className="flex flex-1 items-center">
             <Image
               src={`/icons/${link.icon.base}`}
               alt={link.title}
-              width={17}
-              height={17}
-              className="w-fit"
+              width={25}
+              height={25}
             />
           </div>
         )}
 
-        <p>{link.title}</p>
+        <p className="flex-2 text-xl">{link.title}</p>
       </div>
     </Link>
   )
