@@ -1,11 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ChevronDownIcon, ChevronUpIcon, XMarkIcon } from '@navikt/aksel-icons'
+import { ChevronDownIcon } from '@navikt/aksel-icons'
 import { NavLink } from '@/app/components/shared/nav-link'
 import { mockLinks } from '@/app/lib/mock-data'
-import { link } from 'fs'
-import Link from 'next/link'
 
 export const CategoryNav = () => {
   const links = mockLinks
@@ -57,9 +55,8 @@ export const CategoryNav = () => {
 
   return (
     <>
-      {/* Sticky Nav Toggle Button */}
       <div
-        className={`sticky left-0 top-[70px] flex w-full transform ${
+        className={`sticky left-0 top-[70px] z-30 flex w-full transform ${
           isToggleButtonVisible
             ? 'translate-y-0 transition-transform duration-[600ms]'
             : '-translate-y-full transition-transform duration-[400ms]'
@@ -92,6 +89,11 @@ export const CategoryNav = () => {
           </div>
         </nav>
       </div>
+
+      <div
+        className={`absolute z-20 h-screen w-full ${isNavOpen ? 'bg-black/25 duration-[600ms]' : 'opacity-0 duration-[400ms]'}`}
+        onClick={handleClick}
+      ></div>
     </>
   )
 }
