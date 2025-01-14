@@ -1,4 +1,4 @@
-import { fetchRecipe } from '@/sanity/queries'
+// import { fetchRecipe } from '@/sanity/queries'
 import Link from 'next/link'
 
 const RecipePage = async () => {
