@@ -1,8 +1,7 @@
 import { fetchRecipe } from '@/sanity/queries'
 import Link from 'next/link'
 
-const RecipePage = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = await params
+const RecipePage = async () => {
   // const recipe = await fetchRecipe({ slug })
 
   return (
