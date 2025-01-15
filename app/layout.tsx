@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Ballet, Forum, PT_Serif, Afacad } from 'next/font/google'
 import './globals.css'
 import { NavHeader } from './components/nav-header/nav-header'
+import { NavHeaderMobile } from './components/nav-header/nav-header-mobile'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -32,8 +33,9 @@ export default function RootLayout({
       lang="en"
       className={`${forum.className} ${ballet.className} ${ptSerif.className} ${afacad.className}`}
     >
-      <body className="h-[100%] bg-background text-base antialiased">
-        <NavHeader />
+      <body className="overscroll-none bg-background text-base antialiased">
+        {/* <NavHeader /> */}
+        <NavHeaderMobile />
         {children}
       </body>
     </html>

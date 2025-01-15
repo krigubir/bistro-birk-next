@@ -54,46 +54,40 @@ export const CategoryNav = () => {
   }
 
   return (
-    <>
-      <div
-        className={`sticky left-0 top-[70px] z-30 flex w-full transform ${
-          isToggleButtonVisible
-            ? 'translate-y-0 transition-transform duration-[600ms]'
-            : '-translate-y-full transition-transform duration-[400ms]'
-        }`}
-      >
-        <button
-          type="button"
-          className={`z-40 flex flex-grow items-center justify-between bg-secondary p-2 ${isNavOpen ? 'border-b-2 border-primary/10 duration-[400ms]' : 'border-b-2 border-primary duration-[600ms]'}`}
-          onClick={handleClick}
-        >
-          Kategori{' '}
-          <ChevronDownIcon
-            title="Open category nav"
-            fontSize="1.5rem"
-            className={`transition-transform ${isNavOpen ? 'rotate-180 duration-[600ms]' : 'rotate-0 duration-[400ms]'}`}
-          />
-        </button>
-        <nav
-          className={`fixed top-[52px] flex w-full flex-col bg-secondary shadow-lg ${
-            isNavOpen
-              ? 'tranform transition-transform duration-[600ms]'
-              : '-translate-y-[150%] border-none duration-[400ms]'
-          }`}
-          onClick={handleClick}
-        >
-          <div className="grid w-full grid-cols-2 gap-3 gap-x-12 px-8 py-4">
-            {links.map((link) => (
-              <NavLink link={link} key={link.title} />
-            ))}
-          </div>
-        </nav>
-      </div>
-
-      <div
-        className={`absolute z-20 h-screen w-full ${isNavOpen ? 'bg-black/25 duration-[600ms]' : 'opacity-0 duration-[400ms]'}`}
+    <div
+      className={`sticky z-40 flex w-full transform flex-col ${
+        isToggleButtonVisible
+          ? 'translate-y-0 transition-transform duration-[600ms]'
+          : '-translate-y-full transition-transform duration-[400ms]'
+      }`}
+    >
+      <button
+        type="button"
+        className={`z-30 flex flex-grow items-center justify-between bg-secondary p-2 ${isNavOpen ? 'border-b-2 border-primary/10 duration-[400ms]' : 'border-b-2 border-primary duration-[600ms]'}`}
         onClick={handleClick}
-      ></div>
-    </>
+      >
+        Kategori{' '}
+        <ChevronDownIcon
+          title="Open category nav"
+          fontSize="1.5rem"
+          className={`transition-transform ${isNavOpen ? 'rotate-180 duration-[600ms]' : 'rotate-0 duration-[400ms]'}`}
+        />
+      </button>
+
+      <nav
+        className={`fixed top-[50px] flex w-full flex-col bg-secondary shadow-lg ${
+          isNavOpen
+            ? 'tranform transition-transform duration-[600ms]'
+            : '-translate-y-[150%] border-none duration-[400ms]'
+        }`}
+        onClick={() => setIsNavOpen(false)}
+      >
+        <div className="grid w-full grid-cols-2 gap-3 gap-x-12 px-8 py-4">
+          {links.map((link) => (
+            <NavLink link={link} key={link.title} />
+          ))}
+        </div>
+      </nav>
+    </div>
   )
 }
